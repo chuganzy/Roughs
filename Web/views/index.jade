@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    div(ng-controller="ProjectListController")
+        md-toolbar(md-theme="cyan")
+            .md-toolbar-tools
+                h3= title
+        md-content(md-theme="light-blue-dark")
+            form(name="form" layout-padding layout="horizontal" layout-align="left center" class="form" ng-submit="postProject(pURL)")
+                md-text-float(label="Flinto URL" flex ng-model="pURL" type="url" required)
+                md-button(type="submit" ng-disabled="form.$invalid") Add Project
+        md-content
+            md-list
+                md-item(ng-repeat="project in projects")
+                    md-item-content(layout-padding ng-click="openProject($index)")
+                        div(class="md-tile-left")
+                            img(class="project_icon", ng-src="{{project.icon_url}}", alt="", width="62", height="62")
+                        div(class="md-tile-content")
+                            h3 {{project.title}}
+                            p {{project.creators.join(" / ")}}
+                        div
+                            md-button(class="md-warn" ng-click="deleteProject($event, $index)") Remove
+                    md-divider

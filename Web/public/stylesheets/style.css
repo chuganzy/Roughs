@@ -1,0 +1,29 @@
+input {
+    border-radius: 0;
+}
+
+img.project_icon {
+    margin-right: 10px;
+}
+
+.form {
+    color: #fff;
+}
+
+.form md-input-group {
+    margin: 0;
+}
+
+.form input {
+    width: 100%;
+}
+
+.form md-button {
+    margin-top: 12px;
+    height: 42px;
+}
+
+md-dialog p {
+    margin-top: 0;
+
+}

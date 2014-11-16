@@ -1,0 +1,8 @@
+{
+    "title": "Roughs for {YOUR_ORGANIZATION_NAME}",
+    "mongo_db_uri": "",
+    "basic_auth" : {
+        "username": "",
+        "password": ""
+    }
+}

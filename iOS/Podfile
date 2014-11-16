@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'Roughs' do
+  pod 'AFNetworking'
+  pod 'BlocksKit'
+  pod 'SDWebImage'
+  pod 'AHKNavigationController'
+end

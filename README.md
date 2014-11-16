@@ -1,6 +1,6 @@
 # Roughs
 
-I made a Flinto App for iOS.
+An iOS app and server system to manage Flinto project list.
 
 ## Requirement
 
@@ -72,4 +72,4 @@ You can go back to the project list by swiping the edge or shaking your iPhone.
 ## Others
 
 - It may not work suddenly if Flinto changes the specifications.
-- Pull Requests welcome
+- Pull Requests welcome.

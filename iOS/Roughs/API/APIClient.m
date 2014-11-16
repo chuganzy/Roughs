@@ -10,7 +10,7 @@
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 @end
 
-static NSString *const kAPIClientAPIPath = @"api";
+static NSString *const kAPIClientAPIPath = @"/api";
 
 @implementation APIClient
 

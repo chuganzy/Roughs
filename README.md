@@ -12,7 +12,7 @@ reference: http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd
 
 ### iOS
 
-iOS7 and later
+iOS7 or later
 
 ## Setup
 

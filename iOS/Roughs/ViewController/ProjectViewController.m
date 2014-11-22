@@ -40,11 +40,4 @@
     [webView stringByEvaluatingJavaScriptFromString:@"$(\"#flviewer_device_wrap\").show()"];
 }
 
-- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    if (motion != UIEventSubtypeMotionShake) {
-        return;
-    }
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 @end

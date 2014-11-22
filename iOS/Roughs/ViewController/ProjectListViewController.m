@@ -63,6 +63,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *project = self.projects[indexPath.row];
     ProjectViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProjectViewController"];
     viewController.project = project;

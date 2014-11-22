@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HCPopBackGestureProxy/HCPopBackGestureProxy.h>
 
-@interface ProjectListViewController : UITableViewController
+@interface ProjectListViewController : UITableViewController <HCPopBackGestureProxyDelegate>
 
 @end
 

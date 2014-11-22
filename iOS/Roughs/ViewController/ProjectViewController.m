@@ -4,6 +4,7 @@
 //
 
 #import "ProjectViewController.h"
+#import "RoughsPopBackGestureProxy.h"
 
 @interface ProjectViewController ()
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
@@ -23,17 +24,20 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [RoughsPopBackGestureProxy sharedInstance].viewController = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[RoughsPopBackGestureProxy sharedInstance] viewWillDisappear];
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [webView stringByEvaluatingJavaScriptFromString:@"$(\"#install\").hide()"];
     [webView stringByEvaluatingJavaScriptFromString:@"new flviewer.Viewer(flviewerPrototypeBootstrapData, $(\"#flviewer\"), !0)"];
     [webView stringByEvaluatingJavaScriptFromString:@"$(\"#flviewer_device_wrap\").show()"];
-}
-
-- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    if (motion != UIEventSubtypeMotionShake) {
-        return;
-    }
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

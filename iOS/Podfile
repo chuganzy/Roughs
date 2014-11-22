@@ -4,5 +4,5 @@ target 'Roughs' do
   pod 'AFNetworking'
   pod 'BlocksKit'
   pod 'SDWebImage'
-  pod 'AHKNavigationController'
+  pod 'HCPopBackGestureProxy'
 end

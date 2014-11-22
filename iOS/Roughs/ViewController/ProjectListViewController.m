@@ -7,10 +7,11 @@
 //
 
 #import "ProjectListViewController.h"
-#import "UIControl+BlocksKit.h"
+#import <BlocksKit/UIControl+BlocksKit.h>
 #import "APIClient.h"
 #import "ProjectListTableViewCell.h"
 #import "ProjectViewController.h"
+#import "RoughsPopBackGestureProxy.h"
 
 @interface ProjectListViewController ()
 @property (nonatomic, weak) NSURLSessionDataTask *loadTask;
@@ -21,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [RoughsPopBackGestureProxy sharedInstance].viewController = self;
+
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     __weak ProjectListViewController *weakSelf = self;
     [refreshControl bk_addEventHandler:^(id sender) {
@@ -38,6 +41,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[RoughsPopBackGestureProxy sharedInstance] viewWillDisappear];
 }
 
 - (void)didReceiveMemoryWarning {

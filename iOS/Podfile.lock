@@ -20,7 +20,6 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AHKNavigationController (1.1)
   - BlocksKit (2.2.5):
     - BlocksKit/All
   - BlocksKit/All (2.2.5):
@@ -36,20 +35,21 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - HCPopBackGestureProxy (0.0.4)
   - SDWebImage (3.7.1):
     - SDWebImage/Core
   - SDWebImage/Core (3.7.1)
 
 DEPENDENCIES:
   - AFNetworking
-  - AHKNavigationController
   - BlocksKit
+  - HCPopBackGestureProxy
   - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  AHKNavigationController: 4a6c11257f44f19761c267e120c48b4715caf1b6
   BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
+  HCPopBackGestureProxy: 84d46bd1d5c3571f201002374b8933a3fa4e4f25
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
 
 COCOAPODS: 0.34.4

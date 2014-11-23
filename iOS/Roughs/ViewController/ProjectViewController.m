@@ -4,7 +4,6 @@
 //
 
 #import "ProjectViewController.h"
-#import "RoughsPopBackGestureProxy.h"
 
 @interface ProjectViewController ()
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
@@ -26,12 +25,12 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [RoughsPopBackGestureProxy sharedInstance].viewController = self;
+    [HCPopBackGestureProxy sharedInstance].viewController = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[RoughsPopBackGestureProxy sharedInstance] viewWillDisappear];
+    [[HCPopBackGestureProxy sharedInstance] viewWillDisappear];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {

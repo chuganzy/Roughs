@@ -11,7 +11,6 @@
 #import "APIClient.h"
 #import "ProjectListTableViewCell.h"
 #import "ProjectViewController.h"
-#import "RoughsPopBackGestureProxy.h"
 
 @interface ProjectListViewController ()
 @property (nonatomic, weak) NSURLSessionDataTask *loadTask;
@@ -22,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [RoughsPopBackGestureProxy sharedInstance].viewController = self;
+    [HCPopBackGestureProxy sharedInstance].viewController = self;
 
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     __weak ProjectListViewController *weakSelf = self;
@@ -45,7 +44,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[RoughsPopBackGestureProxy sharedInstance] viewWillDisappear];
+    [[HCPopBackGestureProxy sharedInstance] viewWillDisappear];
 }
 
 - (void)didReceiveMemoryWarning {

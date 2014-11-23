@@ -15,7 +15,6 @@
 		00E7BAC81A17F3B9000F5943 /* ProjectListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E7BAC61A17F3B9000F5943 /* ProjectListTableViewCell.m */; };
 		94E027E5AA22C3A03F5582E7 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E02DDB60ADC4632C8FA762 /* APIClient.m */; };
 		94E0291A0F1D5054CE012D39 /* ProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E0250B55ECCBEADBB6E380 /* ProjectListViewController.m */; };
-		94E029BD1B882824549AC961 /* RoughsPopBackGestureProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E02DFC744FDB7E48B78193 /* RoughsPopBackGestureProxy.m */; };
 		94E02CE5AEC180CC8320F7E4 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E02A8C4AB52F0AF0A04986 /* ProjectViewController.m */; };
 		BD56F08F7DD2A5075680DAE6 /* libPods-Roughs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC831C2A08DEAD61536F866 /* libPods-Roughs.a */; };
 /* End PBXBuildFile section */
@@ -35,12 +34,10 @@
 		0CC831C2A08DEAD61536F866 /* libPods-Roughs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Roughs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2772EC5F5B19715C40F93618 /* Pods-Roughs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roughs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roughs/Pods-Roughs.debug.xcconfig"; sourceTree = "<group>"; };
 		94E0250B55ECCBEADBB6E380 /* ProjectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectListViewController.m; sourceTree = "<group>"; };
-		94E0270CC150B54DBB5C184D /* RoughsPopBackGestureProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoughsPopBackGestureProxy.h; sourceTree = "<group>"; };
 		94E029BDBD3707C955F0DCA7 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		94E02A8C4AB52F0AF0A04986 /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
 		94E02B2A58D0544DDD239966 /* ProjectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectListViewController.h; sourceTree = "<group>"; };
 		94E02DDB60ADC4632C8FA762 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
-		94E02DFC744FDB7E48B78193 /* RoughsPopBackGestureProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoughsPopBackGestureProxy.m; sourceTree = "<group>"; };
 		D99621D6520C1155276CC984 /* Pods-Roughs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roughs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roughs/Pods-Roughs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +82,6 @@
 				00A327E81A17E686001B9207 /* Supporting Files */,
 				94E02051BBF4E28E4C80C24B /* ViewController */,
 				94E02D34E98D70289E7D443D /* API */,
-				94E02BF3B6EE79415335938B /* Common */,
 			);
 			path = Roughs;
 			sourceTree = "<group>";
@@ -127,15 +123,6 @@
 				94E02A8C4AB52F0AF0A04986 /* ProjectViewController.m */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		94E02BF3B6EE79415335938B /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				94E02DFC744FDB7E48B78193 /* RoughsPopBackGestureProxy.m */,
-				94E0270CC150B54DBB5C184D /* RoughsPopBackGestureProxy.h */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		94E02D34E98D70289E7D443D /* API */ = {
@@ -258,7 +245,6 @@
 				94E0291A0F1D5054CE012D39 /* ProjectListViewController.m in Sources */,
 				94E027E5AA22C3A03F5582E7 /* APIClient.m in Sources */,
 				94E02CE5AEC180CC8320F7E4 /* ProjectViewController.m in Sources */,
-				94E029BD1B882824549AC961 /* RoughsPopBackGestureProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

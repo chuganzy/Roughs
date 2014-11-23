@@ -7,7 +7,7 @@
 //
 
 #import "ProjectListViewController.h"
-#import "UIControl+BlocksKit.h"
+#import <BlocksKit/UIControl+BlocksKit.h>
 #import "APIClient.h"
 #import "ProjectListTableViewCell.h"
 #import "ProjectViewController.h"
@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [HCPopBackGestureProxy sharedInstance].viewController = self;
+
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     __weak ProjectListViewController *weakSelf = self;
     [refreshControl bk_addEventHandler:^(id sender) {
@@ -40,6 +42,11 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[HCPopBackGestureProxy sharedInstance] viewWillDisappear];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -55,6 +62,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *project = self.projects[indexPath.row];
     ProjectViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProjectViewController"];
     viewController.project = project;

@@ -1,6 +1,6 @@
 # Roughs
 
-An iOS app and server system to manage Flinto project list.
+An iOS app and server system to manage Flinto projects.
 
 ## Requirement
 
@@ -67,7 +67,7 @@ Register your Flinto projects by its URL.
 
 ### iOS
 
-You can go back to the project list by swiping the edge or shaking your iPhone.
+You can go back to the project list by swiping the screen edge.
 
 ## Others
 

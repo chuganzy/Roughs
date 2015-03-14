@@ -1,0 +1,6 @@
+<h2>{{ngDialogData.title}}</h2>
+<form name="form">
+    <input type="url" placeholder="{{ngDialogData.praceholder}}" ng-model="project.url" ng-pattern="/flinto\.com\/p\/.+/" required />
+    <input type="submit" ng-disabled="!form.$valid" class="button" value="{{ngDialogData.okButtonTitle}}" ng-click="closeThisDialog(project.url)" />
+    <a class="button cancel" ng-click="closeThisDialog()">Cancel</a>
+</form>

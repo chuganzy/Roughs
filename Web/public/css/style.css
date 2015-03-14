@@ -1,0 +1,173 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  color: inherit;
+  font-size: inherit;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  color: #555;
+  font-size: 13px;
+  padding: 72px 0 50px;
+  min-width: 980px;
+}
+.clear_fix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+table {
+  border-collapse: collapse;
+}
+.button {
+  cursor: pointer;
+}
+.button.bordered {
+  border-radius: 3px;
+}
+header {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  top: 0;
+  line-height: 48px;
+  z-index: 10;
+  border-bottom: 1px solid #eeeeee;
+  text-align: center;
+  font-size: 15px;
+}
+section {
+  padding: 0 18px;
+}
+section h2 {
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+section[ng-controller="ProjectListController"] h2 span {
+  float: left;
+  position: relative;
+  top: 2px;
+}
+section[ng-controller="ProjectListController"] h2 a {
+  float: left;
+  margin-left: 5px;
+  background: url("/img/icon_plus.png") no-repeat center;
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-size: contain;
+}
+section[ng-controller="ProjectListController"] table {
+  width: 100%;
+}
+section[ng-controller="ProjectListController"] table th {
+  font-size: 11px;
+  text-align: left;
+  border-bottom: 1px solid #eeeeee;
+  line-height: 21px;
+}
+section[ng-controller="ProjectListController"] table td {
+  border-bottom: 1px solid #eeeeee;
+  height: 56px;
+}
+section[ng-controller="ProjectListController"] table td .app_icon {
+  -webkit-mask: url("/img/mask_app_icon.png") top left / contain;
+}
+section[ng-controller="ProjectListController"] table td img {
+  vertical-align: bottom;
+}
+section[ng-controller="ProjectListController"] table td .button.bordered.delete {
+  display: block;
+  background: #fff;
+  color: #ff675b;
+  border: 1px solid #ff675b;
+  line-height: 24px;
+  width: 54px;
+  text-align: center;
+  font-size: 12px;
+}
+section[ng-controller="ProjectListController"] table tr.project:hover {
+  background: #fafafa;
+}
+@-webkit-keyframes ngdialog-roughs-popin {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.62);
+  }
+  42% {
+    -webkit-transform: scale(1.02);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+@-webkit-keyframes ngdialog-roughs-popout {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.98);
+  }
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-overlay {
+  background: rgba(0, 0, 0, 0.2);
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-content {
+  color: #555;
+  font-size: 13px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -webkit-animation: ngdialog-roughs-popin 320ms;
+  padding: 20px;
+  border-radius: 10px;
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-content h2 {
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-content p {
+  margin-bottom: 18px;
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-content form input:focus {
+  outline: none;
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-content form input[type="url"] {
+  width: 100%;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+  padding: 6px;
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-content form input[type="submit"] {
+  margin-top: 18px;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  color: #89c90f;
+  font-size: 14px;
+  font-weight: 500;
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-content form input[type="submit"][disabled="disabled"] {
+  opacity: 0.3;
+  cursor: default;
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-content a.button {
+  font-size: 14px;
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-content a.button.destructive {
+  color: #ff675b;
+}
+.ngdialog.ngdialog-theme-roughs .ngdialog-content a.button.cancel {
+  margin-left: 16px;
+  color: #aaaaaa;
+}
+.ngdialog.ngdialog-theme-roughs.ngdialog-closing .ngdialog-content {
+  -webkit-animation: ngdialog-roughs-popout 370ms;
+}

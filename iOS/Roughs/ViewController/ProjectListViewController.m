@@ -39,12 +39,21 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+
+    self.navigationController.navigationBar.alpha = 0;
+    [UIView beginAnimations:nil context:nil];
+    self.navigationController.navigationBar.alpha = 1;
+    [UIView commitAnimations];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[HCPopBackGestureProxy sharedInstance] viewWillDisappear];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.loadTask cancel];
 }
 
 - (void)didReceiveMemoryWarning {

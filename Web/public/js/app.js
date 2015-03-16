@@ -40,7 +40,7 @@
       dialog = ngDialog.open({
         data: {
           title: "New Project",
-          praceholder: "Flinto Project URL",
+          placeholder: "Flinto Project URL",
           okButtonTitle: "Register"
         },
         template: "/template/InputDialog.tmpl.html"

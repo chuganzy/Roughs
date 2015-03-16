@@ -35,7 +35,7 @@ router.route("/projects/:id").get((req, res, next) ->
     return
   Project.findOne({
       id: id
-    }, (error, doc) ->
+  }, (error, doc) ->
     if error
       next(error)
       return
@@ -51,7 +51,7 @@ router.route("/projects/:id").get((req, res, next) ->
     return
   Project.remove({
       id: id
-    }, (error, docs) ->
+  }, (error, docs) ->
     res.json(docs)
   )
 )
@@ -65,7 +65,7 @@ router.route("/projects").post((req, res, next) ->
 
   Project.findOne({
       project_url: projectURL
-    }, (error, doc) ->
+  }, (error, doc) ->
     if doc
       next(new RoughsError("PROJECT_ALREADY_EXISTS"))
       return

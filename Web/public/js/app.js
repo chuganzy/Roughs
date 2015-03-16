@@ -21,7 +21,7 @@
       dialog = ngDialog.open({
         data: {
           title: "Delete Project",
-          message: "Are you sure delete “" + targetProject["title"] + "” from the list?",
+          message: "Are you sure you want to delete “" + targetProject["title"] + "” from the list?",
           okButtonTitle: "Delete"
         },
         template: "/template/AlertDialog.tmpl.html"

@@ -4,17 +4,15 @@
 
   app = angular.module("Roughs", ["ngDialog"]);
 
-  app.config([
-    "ngDialogProvider", function(ngDialogProvider) {
-      return ngDialogProvider.setDefaults({
-        showClose: false,
-        className: 'ngdialog-theme-default ngdialog-theme-roughs'
-      });
-    }
-  ]);
+  app.config(function(ngDialogProvider) {
+    return ngDialogProvider.setDefaults({
+      showClose: false,
+      className: 'ngdialog-theme-default ngdialog-theme-roughs'
+    });
+  });
 
   app.controller("ProjectListController", function($scope, $http, ngDialog) {
-    $http.get("/api/projects/all").success(function(data, status, headers, config) {
+    $http.get("/api/1/projects/all").success(function(data, status, headers, config) {
       return $scope.projects = data;
     });
     $scope.confirmDelete = function(index) {
@@ -32,7 +30,7 @@
         if (!data.value || data.value === "$document") {
           return;
         }
-        return $http["delete"]("/api/projects/" + targetProject["id"]).success(function(data, status, headers, config) {
+        return $http["delete"]("/api/1/projects/" + targetProject["id"]).success(function(data, status, headers, config) {
           return $scope.projects.splice(index, 1);
         });
       });
@@ -51,7 +49,7 @@
         if (!data.value || data.value === "$document") {
           return;
         }
-        return $http.post("/api/projects", {
+        return $http.post("/api/1/projects", {
           "project_url": data.value
         }).success(function(data, status, headers, config) {
           return $scope.projects.splice(0, 0, data);

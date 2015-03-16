@@ -17,6 +17,6 @@ block content
                 td {{project.creators.join(" / ")}}
                 td
                     a(ng-href="{{project.project_url}}" target="_blank") {{project.project_url}}
-                td {{project.registered_at * 1000 | date:'dd MMMM, yyyy'}}
+                td {{project.registered_at * 1000 | date:'M/d/yy, HH:mm'}}
                 td(width="56")
                     a.button.bordered.delete(ng-click="confirmDelete($index)") Delete

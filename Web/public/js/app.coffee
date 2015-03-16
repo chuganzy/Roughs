@@ -1,12 +1,12 @@
 app = angular.module("Roughs", ["ngDialog"])
-app.config(["ngDialogProvider", (ngDialogProvider) ->
+app.config((ngDialogProvider) ->
   ngDialogProvider.setDefaults({
     showClose: false
     className: 'ngdialog-theme-default ngdialog-theme-roughs'
   })
-])
+)
 app.controller("ProjectListController", ($scope, $http, ngDialog) ->
-  $http.get("/api/projects/all").success((data, status, headers, config) ->
+  $http.get("/api/1/projects/all").success((data, status, headers, config) ->
     $scope.projects = data
   )
   $scope.confirmDelete = (index) ->
@@ -22,7 +22,7 @@ app.controller("ProjectListController", ($scope, $http, ngDialog) ->
     dialog.closePromise.then((data) ->
       if (!data.value or data.value is "$document")
         return
-      $http.delete("/api/projects/#{targetProject["id"]}").success((data, status, headers, config) ->
+      $http.delete("/api/1/projects/#{targetProject["id"]}").success((data, status, headers, config) ->
         $scope.projects.splice(index, 1)
       )
     )
@@ -39,11 +39,10 @@ app.controller("ProjectListController", ($scope, $http, ngDialog) ->
     dialog.closePromise.then((data) ->
       if (!data.value or data.value is "$document")
         return
-      $http.post("/api/projects", {
+      $http.post("/api/1/projects", {
         "project_url": data.value
       }).success((data, status, headers, config) ->
         $scope.projects.splice(0, 0, data)
       )
     )
 )
-

@@ -42,7 +42,7 @@ class AppManager
         api = require("./routes/api")
         app = @app
         app.use("/", routes)
-        app.use("/api", api)
+        app.use("/api/1", api)
 
     _setupErrors: ->
         app = @app
@@ -55,6 +55,7 @@ class AppManager
         app.use((err, req, res, next) ->
             res.status(err.status or 500)
             res.render("error", {
+                title: require("./info.json").title
                 message: err.message
                 error: if app.get("env") is "development" then err else {}
             })

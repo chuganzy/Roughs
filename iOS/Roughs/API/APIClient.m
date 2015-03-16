@@ -10,7 +10,7 @@
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 @end
 
-static NSString *const kAPIClientAPIPath = @"/api";
+static NSString *const kAPIPath = @"/api/1";
 
 @implementation APIClient
 
@@ -46,7 +46,7 @@ static NSString *const kAPIClientAPIPath = @"/api";
 - (NSURLSessionDataTask *)GET:(NSString *)method
                    parameters:(id)parameters
                       handler:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error))handler {
-    return [self.sessionManager GET:[kAPIClientAPIPath stringByAppendingString:method]
+    return [self.sessionManager GET:[kAPIPath stringByAppendingString:method]
                          parameters:parameters
                             success:^(NSURLSessionDataTask *task, id responseObject) {
                                 handler(task, responseObject, nil);

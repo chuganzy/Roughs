@@ -4,6 +4,7 @@
   font-weight: normal;
   color: inherit;
   font-size: inherit;
+  font-family: inherit;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -12,8 +13,11 @@ body {
   font-family: "Helvetica Neue", "Arial", sans-serif;
   color: #555;
   font-size: 13px;
-  padding: 72px 0 50px;
   min-width: 980px;
+}
+
+a:hover {
+  opacity: 0.6;
 }
 
 .clear_fix::after {
@@ -31,6 +35,9 @@ table {
   &.bordered {
     border-radius: 3px;
   }
+  &:hover {
+    opacity: 1;
+  }
 }
 
 header {
@@ -38,15 +45,20 @@ header {
   background: rgba(255, 255, 255, 0.95);
   width: 100%;
   top: 0;
-  line-height: 48px;
+  line-height: 46px;
   z-index: 10;
   border-bottom: 1px solid #eeeeee;
   text-align: center;
   font-size: 15px;
 }
 
+main {
+  padding: 68px 18px 30px;
+  margin: auto;
+  max-width: 1600px;
+}
+
 section {
-  padding: 0 18px;
   h2 {
     font-size: 12px;
     margin-bottom: 14px;
@@ -57,16 +69,16 @@ section[ng-controller="ProjectListController"] {
   h2 {
     span {
       float: left;
-      position: relative;
-      top: 2px;
     }
     a {
+      position: relative;
+      top: -2px;
       float: left;
       margin-left: 5px;
       background: url("/img/icon_plus.png") no-repeat center;
       display: block;
-      width: 15px;
-      height: 15px;
+      width: 14px;
+      height: 14px;
       background-size: contain;
     }
   }
@@ -110,7 +122,7 @@ section[ng-controller="ProjectListController"] {
     -webkit-transform: scale(0.62);
   }
   42% {
-    -webkit-transform: scale(1.02);
+    -webkit-transform: scale(1.01);
   }
   50% {
     opacity: 1;
@@ -136,6 +148,7 @@ section[ng-controller="ProjectListController"] {
     background: rgba(0, 0, 0, 0.2);
   }
   .ngdialog-content {
+    width: 420px;
     color: #555;
     font-size: 13px;
     background: #fff;
@@ -144,7 +157,7 @@ section[ng-controller="ProjectListController"] {
     padding: 20px;
     border-radius: 10px;
     h2 {
-      font-size: 14px;
+      font-size: 15px;
       margin-bottom: 14px;
     }
     p {
@@ -154,7 +167,7 @@ section[ng-controller="ProjectListController"] {
       input:focus {
         outline: none;
       }
-      input[type="url"] {
+      input[type="text"], input[type="url"] {
         width: 100%;
         border: 1px solid #eeeeee;
         border-radius: 3px;
@@ -180,7 +193,7 @@ section[ng-controller="ProjectListController"] {
         color: #ff675b;
       }
       &.cancel {
-        margin-left: 16px;
+        margin-left: 14px;
         color: #aaaaaa;
       }
     }

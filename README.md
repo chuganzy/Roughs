@@ -6,70 +6,108 @@ An iOS app and server system to manage Flinto projects.
 
 ### Server
 
-Use Heroku, and enable MongoLab plugin.  
-reference: http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd
+- Node.js
+- MongoDB
 
+You can easily construct the server environment with [Heroku](https://www.heroku.com).
+
+Reference: [http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd](http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd) (Japanse)
 
 ### iOS
 
-iOS7 or later
+- iOS7 or later
+- iOS Developer Program membership
 
 ## Setup
 
+First, download or clone this repository.
+
 ### Server
 
-1. Install node modules.
+1. Install modules.
+
 ```
-$ cd Web
+$ cd {REPOSITORY_ROOT}/Web
 $ npm install
 ```
 
-- Edit `info.json`.
+2. Edit `info.json`.
+
 ```
-mongo_db_uri: MongoDB URI (required)
-basic_auth: BASIC Auth username and password (optional)
+mongo_db_uri: {YOUR_MONGODB_URI} (required)
+basic_auth: {BASIC Auth username and password} (optional)
 ```
 
-- Run.
+3. Run.
+
 ```
 $ npm start
 ```
 
 ### iOS
 
-1. Install Xcode and CocoaPods.
+1. Install Xcode.
+
+2. Install CocoaPods.
+
 ```
 $ sudo gem install cocoapods
 ```
 
-- Install CocoaPods Libraries.
+2. Install Libraries.
+
 ```
-$ cd iOS
+$ cd {REPOSITORY_ROOT}/iOS
 $ pod install
 ```
 
-- Open `Roughs.xcworkspace`.
+3. Open **Roughs.xcworkspace** with Xcode.
 
-- Edit `Info.plist`.
 ```
-Roughs:
-> BaseURL: Server Host (ex: http://hoge.com/) (required)
-> BasicAuth: BASIC Auth username and password (optional)
+$ open Roughs.xcworkspace -a Xcode
 ```
 
-- Run.
+4. Edit `Info.plist`.
+
+```
+BaseURL: {SERVER_HOST} (ex: http://hoge.com/) (required)
+BasicAuth: {BASIC Auth username and password} (optional)
+```
+
+5. Run.
 
 ## Usage
 
-### Server
+### Register a Flinto project
 
-Register your Flinto projects by its URL.
+1. Access to your server with Chrome or Safari.
 
-### iOS
+2. Click + button.
 
-You can go back to the project list by swiping the screen edge.
+3. Enter the Flinto project URL.
 
-## Others
+4. Click Register button.
 
-- It may not work suddenly if Flinto changes the specifications.
-- Pull Requests welcome.
+### View a Flinto project
+
+1. Just open your app.
+
+2. Select the project.
+
+3. You can go back to the project list by swiping right from the app screen's left edge: iOS standard back action.
+
+## Creator
+
+### Takeru Chuganji
+
+* [GitHub](https://github.com/hoppenichu)
+* [Twitter](https://twitter.com/hoppenichu)
+* [E-mail](mailto:takeru@hoppenichu.com)
+
+## etc
+
+* It may not work suddenly if Flinto changes its specifications.
+* Pull Requests are welcome.
+* If you do, please let me know you're using this project.
+
+

@@ -143,7 +143,7 @@ section[ng-controller="ProjectListController"] table tr.project:hover {
   margin-bottom: 14px;
 }
 .ngdialog.ngdialog-theme-roughs .ngdialog-content p {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 .ngdialog.ngdialog-theme-roughs .ngdialog-content form input:focus {
   outline: none;
@@ -156,7 +156,7 @@ section[ng-controller="ProjectListController"] table tr.project:hover {
   padding: 6px;
 }
 .ngdialog.ngdialog-theme-roughs .ngdialog-content form input[type="submit"] {
-  margin-top: 18px;
+  margin-top: 16px;
   -webkit-appearance: none;
   background: none;
   border: none;

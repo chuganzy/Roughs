@@ -17,13 +17,10 @@ Project = mongoose.model("Project", projectScheme)
 mongoose.connect(require("../info.json").mongo_db_uri)
 
 router.route("/projects/all").get((req, res, next) ->
-  Project.find({}, (error, docs) ->
+  Project.find({}).sort("-registered_at").select("-screens").exec((error, docs)->
     if error
       next(error)
       return
-    docs.reverse()
-    for doc of docs
-      delete doc.screens
     res.json(docs)
   )
 )

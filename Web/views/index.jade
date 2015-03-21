@@ -12,11 +12,11 @@ block content
                 th(colspan="2") Date
             tr.project(ng-repeat="project in projects")
                 td(width="58")
-                    img.app_icon(ng-src="{{project.icon_url}}" width="44" height="44")
-                td {{project.title}}
-                td {{project.creators.join(" / ")}}
+                    img.app_icon(ng-src="{{::project.icon_url}}" width="44" height="44")
+                td {{::project.title}}
+                td {{::project.creators.join(" / ")}}
                 td
-                    a(ng-href="{{project.project_url}}" target="_blank") {{project.project_url}}
-                td {{project.registered_at * 1000 | date:'M/d/yy, HH:mm'}}
+                    a(ng-href="{{::project.project_url}}" target="_blank") {{::project.project_url}}
+                td {{::project.registered_at * 1000 | date:'M/d/yy, HH:mm'}}
                 td(width="56")
                     a.button.bordered.delete(ng-click="confirmDelete($index)") Delete

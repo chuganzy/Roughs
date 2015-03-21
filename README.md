@@ -54,27 +54,27 @@ $ npm start
 $ sudo gem install cocoapods
 ```
 
-2. Install Libraries.
+3. Install Libraries.
 
 ```
 $ cd {REPOSITORY_ROOT}/iOS
 $ pod install
 ```
 
-3. Open **Roughs.xcworkspace** with Xcode.
+4. Open **Roughs.xcworkspace** with Xcode.
 
 ```
 $ open Roughs.xcworkspace -a Xcode
 ```
 
-4. Edit `Info.plist`.
+5. Edit `Info.plist`.
 
 ```
 BaseURL: {SERVER_HOST} (ex: http://hoge.com/) (required)
 BasicAuth: {BASIC Auth username and password} (optional)
 ```
 
-5. Run.
+6. Run.
 
 ## Usage
 

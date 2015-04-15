@@ -9,14 +9,14 @@ An iOS app and server system to manage Flinto projects.
 - Node.js
 - MongoDB
 
-You can easily construct the server environment with [Heroku](https://www.heroku.com).
+You can easily construct the server environment using [Heroku](https://www.heroku.com).
 
-Reference: [http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd](http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd) (Japanse)
+Reference: [http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd](http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd)
 
 ### iOS
 
 - iOS7 or later
-- iOS Developer Program membership
+- iOS Developer Program Membership
 
 ## Setup
 
@@ -24,25 +24,25 @@ First, download or clone this repository.
 
 ### Server
 
-1. Install modules.
+1. Install node modules.
 
-```
-$ cd {REPOSITORY_ROOT}/Web
-$ npm install
-```
+	```
+	$ cd {REPOSITORY_ROOT}/Web
+	$ npm install
+	```
 
 2. Edit `info.json`.
 
-```
-mongo_db_uri: {YOUR_MONGODB_URI} (required)
-basic_auth: {BASIC Auth username and password} (optional)
-```
+	```
+	mongo_db_uri: {YOUR_MONGODB_URI} (required)
+	basic_auth: {BASIC-Auth username and password} (optional)
+	```
 
 3. Run.
 
-```
-$ npm start
-```
+	```
+	$ npm start
+	```
 
 ### iOS
 
@@ -50,29 +50,29 @@ $ npm start
 
 2. Install CocoaPods.
 
-```
-$ sudo gem install cocoapods
-```
+	```
+	$ sudo gem install cocoapods
+	```
 
 3. Install Libraries.
 
-```
-$ cd {REPOSITORY_ROOT}/iOS
-$ pod install
-```
+	```
+	$ cd {REPOSITORY_ROOT}/iOS
+	$ pod install
+	```
 
 4. Open **Roughs.xcworkspace** with Xcode.
 
-```
-$ open Roughs.xcworkspace -a Xcode
-```
+	```
+	$ open Roughs.xcworkspace -a Xcode
+	```
 
 5. Edit `Info.plist`.
 
-```
-BaseURL: {SERVER_HOST} (ex: http://hoge.com/) (required)
-BasicAuth: {BASIC Auth username and password} (optional)
-```
+	```
+	BaseURL: {SERVER_HOST} (ex: http://hoge.com/) (required)
+	BasicAuth: {BASIC-Auth username and password} (optional)
+	```
 
 6. Run.
 
@@ -86,15 +86,15 @@ BasicAuth: {BASIC Auth username and password} (optional)
 
 3. Enter the Flinto project URL.
 
-4. Click Register button.
+4. Click Register button. That's it!
 
 ### View a Flinto project
 
-1. Just open your app.
+1. Open Roughs app.
 
 2. Select the project.
 
-3. You can go back to the project list by swiping right from the app screen's left edge: iOS standard back action.
+3. You can go back to the project list by swiping right from the app screen's left-edge: iOS standard pop-back action.
 
 ## Creator
 

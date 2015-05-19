@@ -1,6 +1,5 @@
-extends layout
-
+extends header
 block content
-    h1= message
-    h2= error.status
-    pre #{error.stack}
+    section
+        h2 #{error.status} #{message}
+        pre #{error.stack}

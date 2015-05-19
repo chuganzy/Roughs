@@ -5,8 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <HCPopBackGestureProxy/HCPopBackGestureProxy.h>
 
-@interface ProjectViewController : UIViewController <UIWebViewDelegate, HCPopBackGestureProxyDelegate>
+@interface ProjectViewController : UIViewController
 @property (nonatomic, copy) NSDictionary *project;
 @end

@@ -4,8 +4,9 @@
 //
 
 #import "ProjectViewController.h"
+#import "HCPopBackGestureProxy.h"
 
-@interface ProjectViewController ()
+@interface ProjectViewController () <HCPopBackGestureProxyDelegate, UIWebViewDelegate>
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
 @end
 
@@ -20,7 +21,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -26,19 +26,13 @@ class FlintoAPIManager
       cheerio = require("cheerio")
       $ = cheerio.load(body)
       script = $("body script").first().text().trim()
-      script = script.match(/\/{2}<\!\[CDATA\[([\S\s]*)\/{2}\]{2}>$/i)
-      if !script
+      script = script.match(/\/{2}<!\[CDATA\[[\s\n]+var\s+\w+\s*=\s*([\S\s]*);[\s\n]+\/{2}]{2}>$/i)
+      if !script or script.length < 1
         handler(null, INVALID_PROJECT_URL_ERROR)
         return
-      script = script[0]
-      eval(script)
-      if !flviewerPrototypeBootstrapData
-        handler(null, INVALID_PROJECT_URL_ERROR)
-        return
-      string = JSON.stringify(flviewerPrototypeBootstrapData)
+      string = script[1]
       # TODO: make more strictly
-      string = string.replace(/"(\/prototypes\/[^"]+)"/ig, "\"#{FLINTO_BASE_URL}$1\"")
-      string = string.replace(/"(\/assets\/[^"]+)"/ig, "\"#{FLINTO_BASE_URL}$1\"")
+      string = string.replace(/"((\/prototypes\/[^"]+)|(\/assets\/[^"]+))"/ig, "\"#{FLINTO_BASE_URL}$1\"")
       object = JSON.parse(string)
       object.project_url = url
       handler(object, null)

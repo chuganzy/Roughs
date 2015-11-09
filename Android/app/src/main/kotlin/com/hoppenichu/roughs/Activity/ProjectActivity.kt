@@ -2,6 +2,7 @@ package com.hoppenichu.roughs.Activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.KeyEvent
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.hoppenichu.roughs.R
@@ -50,5 +51,13 @@ class ProjectActivity : AppCompatActivity() {
             return
         }
         super.onBackPressed()
+    }
+
+    override fun onKeyLongPress(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            supportFinishAfterTransition()
+            return true
+        }
+        return super.onKeyLongPress(keyCode, event)
     }
 }

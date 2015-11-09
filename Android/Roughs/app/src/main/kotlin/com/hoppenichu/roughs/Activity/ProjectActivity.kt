@@ -12,6 +12,8 @@ import com.hoppenichu.roughs.Service.Model.Project
  */
 class ProjectActivity : AppCompatActivity() {
 
+    private var _webView: WebView? = null
+
     companion object {
         val INTENT_EXTRA_ROJECT = "PROJECT"
     }
@@ -39,5 +41,14 @@ class ProjectActivity : AppCompatActivity() {
             }
         })
         webView.loadUrl(project.project_url)
+        _webView = webView
+    }
+
+    override fun onBackPressed() {
+        if (_webView?.canGoBack() == true) {
+            _webView?.goBack()
+            return
+        }
+        super.onBackPressed()
     }
 }

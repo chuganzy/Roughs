@@ -11,6 +11,9 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "ROUGHS_BASE_URL", "\"${project.property("roughsBaseURL")}\""
+        buildConfigField "String", "ROUGHS_BASIC_AUTH_USERNAME", "\"${project.property("roughsBasicAuthUsername")}\""
+        buildConfigField "String", "ROUGHS_BASIC_AUTH_PASSWORD", "\"${project.property("roughsBasicAuthPassword")}\""
     }
     buildTypes {
         release {

@@ -14,7 +14,7 @@ import android.widget.ListView
 import android.widget.TextView
 import com.hoppenichu.roughs.BuildConfig
 import com.hoppenichu.roughs.R
-import com.hoppenichu.roughs.Service.APIClient
+import com.hoppenichu.roughs.Service.APIFactory
 import com.hoppenichu.roughs.Service.API.ProjectAPI
 import com.hoppenichu.roughs.Service.Model.Project
 import com.hoppenichu.roughs.Util.toArrayList
@@ -54,7 +54,7 @@ class ProjectListActivity : AppCompatActivity() {
 
     private fun _refresh() {
         _refreshLayout?.setRefreshing(true)
-        val api = APIClient.instance.createAPI(javaClass<ProjectAPI>()) as ProjectAPI
+        val api = APIFactory.instance.createAPI(javaClass<ProjectAPI>()) as ProjectAPI
         api.getAllProjects(object: Callback<Array<Project>> {
             override fun success(results: Array<Project>, response: Response) {
                 _refreshLayout?.setRefreshing(false)

@@ -8,6 +8,7 @@
 
 @interface ProjectViewController () <HCPopBackGestureProxyDelegate, UIWebViewDelegate>
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
+@property (nonatomic) BOOL evaluatedJavaScript;
 @end
 
 
@@ -34,9 +35,13 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    if (self.evaluatedJavaScript) {
+        return;
+    }
     [webView stringByEvaluatingJavaScriptFromString:@"$(\"#install\").hide()"];
     [webView stringByEvaluatingJavaScriptFromString:@"new flviewer.Viewer(flviewerPrototypeBootstrapData, $(\"#flviewer\"), !0)"];
     [webView stringByEvaluatingJavaScriptFromString:@"$(\"#flviewer_device_wrap\").show()"];
+    self.evaluatedJavaScript = YES;
 }
 
 @end

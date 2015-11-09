@@ -16,6 +16,8 @@ class ProjectActivity : AppCompatActivity() {
         val INTENT_EXTRA_ROJECT = "PROJECT"
     }
 
+    private var _evaluatedJavaScript = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_project)
@@ -27,12 +29,15 @@ class ProjectActivity : AppCompatActivity() {
         webView.setWebViewClient(object: WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
+                if (_evaluatedJavaScript) {
+                    return
+                }
                 view?.evaluateJavascript("$(\"#install\").hide()", null)
                 view?.evaluateJavascript("new flviewer.Viewer(flviewerPrototypeBootstrapData, $(\"#flviewer\"), !0)", null)
                 view?.evaluateJavascript("$(\"#flviewer_device_wrap\").show()", null)
+                _evaluatedJavaScript = true
             }
         })
         webView.loadUrl(project.project_url)
-
     }
 }

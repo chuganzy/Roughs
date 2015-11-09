@@ -85,4 +85,3 @@ class ProjectListActivity : AppCompatActivity() {
         }
     }
 }
-

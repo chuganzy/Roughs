@@ -1,6 +1,6 @@
 # Roughs
 
-An iOS app and server system to manage Flinto projects.
+Mobile apps and server system to manage Flinto projects.
 
 ## Requirement
 
@@ -16,7 +16,10 @@ Reference: [http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd](http://qiita.c
 ### iOS
 
 - iOS7 or later
-- iOS Developer Program Membership
+
+### Android
+
+- Android 4.0 or later
 
 ## Setup
 
@@ -70,11 +73,26 @@ First, download or clone this repository.
 5. Edit `Info.plist`.
 
 	```
-	BaseURL: {SERVER_HOST} (ex: http://hoge.com/) (required)
-	BasicAuth: {BASIC-Auth username and password} (optional)
+	BaseURL: {YOUR_SERVER_HOST} (ex: http://hoge.com/) (required)
+	BasicAuth: {YOUR_BASIC_AUTH_USERNAME and PASSWORD} (optional)
 	```
 
 6. Run.
+
+### Android
+
+1. Install Android Studio.
+
+2. Edit `gradle.properties`.
+
+```
+roughsBaseURL: {YOUR_SERVER_HOST} (ex: http://hoge.com/) (required)
+roughsBasicAuthUsername: {YOUR_BASIC_AUTH_USERNAME} (optional)
+roughsBasicAuthUsername: {YOUR_BASIC_AUTH_PASSWORD} (optional)
+
+```
+
+3. Run.
 
 ## Usage
 

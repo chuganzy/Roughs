@@ -25,7 +25,6 @@ class APIFactory private constructor() {
         val host = BuildConfig.ROUGHS_BASE_URL
         builder.setEndpoint("$host/api/1")
         _adapter = builder.build()
-        BuildConfig.APPLICATION_ID
     }
 
     fun <T> createAPI(service: Class<T>) : T {

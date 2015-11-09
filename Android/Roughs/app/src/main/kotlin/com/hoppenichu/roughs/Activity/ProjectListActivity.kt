@@ -49,7 +49,12 @@ class ProjectListActivity : AppCompatActivity() {
             _refresh()
         }
         _refreshLayout = refreshLayout
-        _refresh()
+
+        // ref: http://stackoverflow.com/questions/26858692/swiperefreshlayout-setrefreshing-not-showing-indicator-initially
+        _refreshLayout?.post(Runnable {
+            _refreshLayout?.setRefreshing(true)
+            _refresh()
+        })
     }
 
     private fun _refresh() {
@@ -77,7 +82,6 @@ class ProjectListActivity : AppCompatActivity() {
             (view.findViewById(R.id.title_text_view) as TextView).text = project.title
             (view.findViewById(R.id.creators_text_view) as TextView).text = project.creators.join(" / ")
             return view;
-            BuildConfig.APPLICATION_ID
         }
     }
 }

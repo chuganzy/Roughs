@@ -1,3 +1,5 @@
+mongoose = require("mongoose")
+
 class AppManager
     express = require("express")
     constructor: ->
@@ -7,6 +9,7 @@ class AppManager
         @_setupModules()
         @_setupRoutes()
         @_setupErrors()
+        @_setupDB()
 
     _setupModules: ->
         path = require("path")
@@ -60,6 +63,9 @@ class AppManager
                 error: if app.get("env") is "development" then err else {}
             })
         )
+
+      _setupDB: ->
+        mongoose.connect(require("./info.json").mongo_db_uri)
 
 appManager = new AppManager()
 appManager.setup()

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import com.hoppenichu.roughs.R
 import com.hoppenichu.roughs.Service.Model.Project
 
@@ -19,8 +18,6 @@ class ProjectActivity : AppCompatActivity() {
         val INTENT_EXTRA_ROJECT = "PROJECT"
     }
 
-    private var _evaluatedJavaScript = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_project)
@@ -29,19 +26,9 @@ class ProjectActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
         webView.settings.setAppCacheEnabled(true)
-        webView.setWebViewClient(object: WebViewClient() {
-            override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
-                if (_evaluatedJavaScript) {
-                    return
-                }
-                view?.evaluateJavascript("$(\"#install\").hide()", null)
-                view?.evaluateJavascript("new flviewer.Viewer(flviewerPrototypeBootstrapData, $(\"#flviewer\"), !0)", null)
-                view?.evaluateJavascript("$(\"#flviewer_device_wrap\").show()", null)
-                _evaluatedJavaScript = true
-            }
-        })
-        webView.loadUrl(project.project_url)
+        webView.settings.setAppCachePath(cacheDir.getPath())
+        webView.settings.userAgentString = project.user_agent
+        webView.loadUrl(project.project_url + "?in_browser=1")
         _webView = webView
     }
 

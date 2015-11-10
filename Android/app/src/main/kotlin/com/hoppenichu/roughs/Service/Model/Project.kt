@@ -10,4 +10,5 @@ class Project : Serializable {
     val icon_url = ""
     val project_url = ""
     val creators = arrayOf<String>()
+    val user_agent = ""
 }

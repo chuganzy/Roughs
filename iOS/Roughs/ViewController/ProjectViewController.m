@@ -16,7 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:self.project[@"project_url"]];
+    NSString *userAgent = self.project[@"user_agent"];
+    if (userAgent) {
+        [[NSUserDefaults standardUserDefaults] registerDefaults:@{
+                                                                  @"UserAgent" : userAgent
+                                                                  }];
+    }
+    NSURL *url = [NSURL URLWithString:[self.project[@"project_url"] stringByAppendingString:@"?in_browser=1"]];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
@@ -32,16 +38,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[HCPopBackGestureProxy sharedInstance] viewWillDisappear];
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    if (self.evaluatedJavaScript) {
-        return;
-    }
-    [webView stringByEvaluatingJavaScriptFromString:@"$(\"#install\").hide()"];
-    [webView stringByEvaluatingJavaScriptFromString:@"new flviewer.Viewer(flviewerPrototypeBootstrapData, $(\"#flviewer\"), !0)"];
-    [webView stringByEvaluatingJavaScriptFromString:@"$(\"#flviewer_device_wrap\").show()"];
-    self.evaluatedJavaScript = YES;
 }
 
 @end

@@ -1,23 +1,11 @@
 express = require("express")
 router = express.Router()
-mongoose = require("mongoose")
-Schema = mongoose.Schema
 FlintoAPIManager = require("../common/FlintoAPIManager")
 RoughsError = require("../common/RoughsError")
-
-projectScheme = new Schema({
-  id: Number
-  title: String
-  project_url: String
-  registered_at: Number
-}, {
-  strict: false
-})
-Project = mongoose.model("Project", projectScheme)
-mongoose.connect(require("../info.json").mongo_db_uri)
+Project = require("../common/Project")
 
 router.route("/projects/all").get((req, res, next) ->
-  Project.find({}).sort("-registered_at").select("-screens").exec((error, docs)->
+  Project.find({}).sort("-registered_at").select("id title project_url icon_url creators registered_at device").exec((error, docs) ->
     if error
       next(error)
       return
@@ -28,7 +16,7 @@ router.route("/projects/all").get((req, res, next) ->
 router.route("/projects/:id").get((req, res, next) ->
   id = req.params.id
   if isNaN(id)
-    next(new RoughsError("INVALID_PROJECT_ID"))
+    next(RoughsError.INVALID_PROJECT_ID)
     return
   Project.findOne({
       id: id
@@ -37,14 +25,14 @@ router.route("/projects/:id").get((req, res, next) ->
       next(error)
       return
     if !doc
-      next(new RoughsError("PROJECT_NOT_FOUND"))
+      next(RoughsError.PROJECT_NOT_FOUND)
       return
     res.json(doc)
   )
 ).delete((req, res, next) ->
   id = req.params.id
   if isNaN(id)
-    next(new RoughsError("INVALID_PROJECT_ID"))
+    next(RoughsError.INVALID_PROJECT_ID)
     return
   Project.remove({
       id: id
@@ -56,7 +44,7 @@ router.route("/projects/:id").get((req, res, next) ->
 router.route("/projects").post((req, res, next) ->
   projectURL = req.body.project_url
   if !projectURL
-    next(new RoughsError("INVALID_PROJECT_URL"))
+    next(RoughsError.INVALID_PROJECT_URL)
     return
   projectURL = FlintoAPIManager.modifyFlintoProjectURL(projectURL)
 
@@ -64,7 +52,7 @@ router.route("/projects").post((req, res, next) ->
       project_url: projectURL
   }, (error, doc) ->
     if doc
-      next(new RoughsError("PROJECT_ALREADY_EXISTS"))
+      next(RoughsError.PROJECT_ALREADY_EXIST)
       return
     FlintoAPIManager.getProjectObject(projectURL, (object, error) ->
       if error
@@ -84,14 +72,11 @@ router.route("/projects").post((req, res, next) ->
 
 router.use((err, req, res, next) ->
   res.status(err.status)
-  res.json({
-    name: err.message
-  })
+  res.json(err)
 ).use((req, res, next) ->
-  res.status(404)
-  res.json({
-    name: "API_METHOD_NOT_FOUNT"
-  })
+  err = RoughsError.INVALID_API_METHOD
+  res.status(err.status)
+  res.json(err)
 )
 
 module.exports = router

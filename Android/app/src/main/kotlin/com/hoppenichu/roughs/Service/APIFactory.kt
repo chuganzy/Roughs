@@ -15,8 +15,8 @@ class APIFactory private constructor() {
         val builder = RestAdapter.Builder()
         val name = BuildConfig.ROUGHS_BASIC_AUTH_USERNAME
         val pass = BuildConfig.ROUGHS_BASIC_AUTH_PASSWORD
-        if (0 < name.length() && 0 < pass.length()) {
-            val credentials = ("$name:$pass" as java.lang.String).getBytes()
+        if (0 < name.length && 0 < pass.length) {
+            val credentials = "$name:$pass".toByteArray()
             val basic = "Basic " + Base64.encodeToString(credentials, Base64.NO_WRAP)
             builder.setRequestInterceptor { request ->
                 request.addHeader("Authorization", basic)

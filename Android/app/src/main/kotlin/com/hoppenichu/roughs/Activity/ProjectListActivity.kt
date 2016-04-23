@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
-import com.hoppenichu.roughs.BuildConfig
 import com.hoppenichu.roughs.R
 import com.hoppenichu.roughs.Service.APIFactory
 import com.hoppenichu.roughs.Service.API.ProjectAPI
@@ -39,7 +38,7 @@ class ProjectListActivity : AppCompatActivity() {
         val listView = findViewById(R.id.list_view) as ListView
         listView.setAdapter(_adapter)
         listView.setOnItemClickListener { adapterView, view, i, l ->
-            val intent = Intent(this, javaClass<ProjectActivity>())
+            val intent = Intent(this, ProjectActivity::class.java)
             val project = _adapter?.getItem(i) as Project
             intent.putExtra(ProjectActivity.INTENT_EXTRA_ROJECT, project)
             startActivity(intent)
@@ -52,14 +51,14 @@ class ProjectListActivity : AppCompatActivity() {
 
         // ref: http://stackoverflow.com/questions/26858692/swiperefreshlayout-setrefreshing-not-showing-indicator-initially
         _refreshLayout?.post(Runnable {
-            _refreshLayout?.setRefreshing(true)
             _refresh()
         })
     }
 
     private fun _refresh() {
         _refreshLayout?.setRefreshing(true)
-        val api = APIFactory.instance.createAPI(javaClass<ProjectAPI>()) as ProjectAPI
+
+        val api = APIFactory.instance.createAPI(ProjectAPI::class.java)
         api.getAllProjects(object: Callback<Array<Project>> {
             override fun success(results: Array<Project>, response: Response) {
                 _refreshLayout?.setRefreshing(false)
@@ -80,7 +79,7 @@ class ProjectListActivity : AppCompatActivity() {
             val project = getItem(position)
             Picasso.with(context).load(project.icon_url).into((view.findViewById(R.id.icon_image_view) as ImageView))
             (view.findViewById(R.id.title_text_view) as TextView).text = project.title
-            (view.findViewById(R.id.creators_text_view) as TextView).text = project.creators.join(" / ")
+            (view.findViewById(R.id.creators_text_view) as TextView).text = project.creators.joinToString(" / ")
             return view;
         }
     }

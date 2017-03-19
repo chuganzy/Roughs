@@ -1,15 +1,18 @@
 # Roughs
 
-Mobile apps and server system to manage Flinto projects.
+Mobile apps and server app to manage Flinto projects.
 
 ## Requirement
 
 ### Server
 
+
+#### Requirement
+
 - Node.js
 - MongoDB
 
-You can easily construct the server environment using [Heroku](https://www.heroku.com).
+You can easily construct the environment using [Heroku](https://www.heroku.com).
 
 Reference: [http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd](http://qiita.com/runtBlue/items/0731f6f9d4bd27cd2dbd)
 
@@ -82,8 +85,8 @@ First, download or clone this repository.
 ### Android
 
 1. Install Android Studio.
-
-2. Edit `gradle.properties`.
+2. Install Kotlin plugin if needed.
+3. Edit `gradle.properties`.
 
 ```
 roughsBaseURL: {YOUR_SERVER_HOST} (ex: http://hoge.com/) (required)
@@ -92,7 +95,7 @@ roughsBasicAuthUsername: {YOUR_BASIC_AUTH_PASSWORD} (optional)
 
 ```
 
-3. Run.
+4. Run.
 
 ## Usage
 
@@ -118,9 +121,9 @@ roughsBasicAuthUsername: {YOUR_BASIC_AUTH_PASSWORD} (optional)
 
 ### Takeru Chuganji
 
-* [GitHub](https://github.com/hoppenichu)
-* [Twitter](https://twitter.com/hoppenichu)
-* [E-mail](mailto:takeru@hoppenichu.com)
+* [GitHub](https://github.com/chuganzy)
+* [Twitter](https://twitter.com/chuganzy)
+* [E-mail](mailto:chu@ganzy.jp)
 
 ## etc
 
